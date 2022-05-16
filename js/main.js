@@ -106,7 +106,7 @@ jQuery(function($) {
 
 		$('html, body').animate({scrollTop:target_top}, 600);
 		$('#portfolio-single').slideUp(500, function(){
-			$(this).load(link,function(){
+			$(this).on('load', link,function(){
 				$(this).slideDown(500);
 			});
 		});
