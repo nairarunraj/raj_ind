@@ -162,7 +162,7 @@ jQuery(function($) {
 			infowindow.open(map,marker);
 		});
 	}
+
 	google.maps.event.addDomListener(window, 'load', initialize_map);
-	
 });
 
