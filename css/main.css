@@ -311,6 +311,7 @@ section {
   border-bottom: 1px solid #f2f2f2;
   padding-bottom: 50px;
 }
+
 /*
 .our-services .col-sm-4:nth-child(4),
 .our-services .col-sm-4:nth-child(5),
@@ -334,7 +335,7 @@ section {
 #about-us {
   background-image: url(../images/about-bg.jpg);
   padding: 60px 0;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 #about-us h2 {
