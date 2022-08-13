@@ -100,7 +100,7 @@ a:hover {
 }
 
 section {
-  padding: 90px 0;
+  padding: 2px 0;
 }
 
 .heading {
@@ -389,6 +389,10 @@ section {
   position: relative;
 }
 
+#portfolio p {
+  font-size: large;
+}
+
 #portfolio .overlay {
   background-color: #000;
   color: #fff;
@@ -667,7 +671,7 @@ section {
 
 .info-card p {
   color: snow;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   line-height: 140%;
 }
 

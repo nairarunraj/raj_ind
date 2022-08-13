@@ -14,6 +14,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/lightbox.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+  <link href="css/slideshow.css" rel="stylesheet">
   <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
 
@@ -68,69 +69,96 @@
   </header>
   <!--/#home-->
 
+  <section id="gallery">
+    <div class="wrapper">
+      <div class="slideshows">
+        <div class="slideshow slideshow--hero">
+          <div class="slides">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+          </div>
+        </div>
+        <div class="slideshow slideshow--contrast slideshow--contrast--before">
+          <div class="slides">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+          </div>
+        </div>
+        <div class="slideshow slideshow--contrast slideshow--contrast--after">
+          <div class="slides">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="jumbotron">
-    <!-- <h1 class="display-4">Roving Transport System</h1> -->
-    <!-- <img src="images/rts/motorized-rts.gif" alt="Motorized RTS"> -->
     <div class="container">
       <div class="col-sm-6">
-        <video width="100%" height="480" autoplay muted loop>
+        <h1 class="display-4">Roving Transport System</h1>
+        <!-- <video width="100%" height="480" autoplay muted loop>
           <source src="videos/flexible-motorized-rts-hd.mp4" type="video/mp4">
           <source src="videos/flexible-motorized-rts-sd.mp4" type="video/mp4">
           Your browser does not support the video tag.
-        </video>
+        </video> -->
       </div>
       <div class="col-sm-6">
-        <video width="100%" height="480" autoplay muted loop>
+        <img src="images/rts/motorized-rts.gif" alt="Motorized RTS">
+        <!-- <video width="100%" height="480" autoplay muted loop>
           <source src="videos/bend-rts1.MOV" type="video/mp4">
           <source src="movie.ogg" type="video/ogg">
           Your browser does not support the video tag.
-        </video>
+        </video> -->
       </div>
     </div>
   </div>
   <section id="info">
     <div class="container">
       <div class="row">
-        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms"
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="500ms"
           data-wow-delay="300ms">
           <h2>Salient Features</h2>
         </div>
       </div>
     </div>
-    <div class="info-row container-fluid">
-      <div class="info-card col-md-3">
+    <div class="info-row">
+      <div class="info-card col-sm-3 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>Flexible Links</h2>
         <p>Our flexible links are precision steel cast which last a life time of continued rough and tough
           application</p>
       </div>
-      <div class="info-card col-md-3">
+      <div class="info-card col-sm-3 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>No Plastic components</h2>
         <p>Connecting links are made of Stainless steel providing much higher strength and are
           aesthetic too. More importantly, no breakages or system failures</p>
       </div>
 
-      <div class="info-card col-md-4">
+      <div class="info-card col-sm-4 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>Four point Holding Spring Cushioned Bobbin Holders</h2>
         <p>Four point Holding Spring Cushioned Bobbin Holders are provided at precise distances
           , from the most reputed Bobbin Holder manufacturer in Coimbatore</p>
       </div>
-      <div class="info-card col-md-3">
+      <div class="info-card col-sm-3 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>348 mm links</h2>
         <p>Shortest in the RTS market, helps make turns smoothly</p>
       </div>
-      <div class="info-card col-md-4">
+      <div class="info-card col-sm-4 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>Efficient Power Usage</h2>
         <p>87 Watt 4 pole motors in the system consume lesser power than a 100 W
           Bulb and still works at half load in the loop</p>
       </div>
-      <div class="info-card col-md-3">
+      <div class="info-card col-sm-3 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>5 bearing Sliding Unit System</h2>
         <p>Much superior to 3 bearing unit System provided in other RTS.
           Serves to give smooth movement so that life is extended for Sliding Unit and Aluminium Rail along with lesser
           power consumption</p>
       </div>
-      <div class="info-card col-md-3">
+      <div class="info-card col-sm-3 wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
         <h2>Precision Curves</h2>
         <p>Curves used in our system are made by the largest manufacturer in Mysore,
           with utmost accuracy to our in‐house design</p>
@@ -277,13 +305,24 @@
   </section> -->
   <!--/#advantages-->
 
-  <section id="presence">
+  <!-- <section id="presence">
     <div class="container">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms"
           data-wow-delay="300ms">
           <h2>Our Presence</h2>
           <img class="img-responsive" src="images/rts/our-presence.PNG" alt="Some picture">
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section id="presence">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms"
+          data-wow-delay="300ms">
+          <h2>Our Presence</h2>
+          <img class="img-responsive" src="images/rts/our-presence.PNG" alt="presence-map">
         </div>
       </div>
     </div>
@@ -335,8 +374,10 @@
             <li><a class="envelope" href="mailto:info@rajindustries.org"><i class="fa fa-envelope"></i></a></li>
             <!-- <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li> -->
             <!-- <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li> -->
-            <li><a class="facebook" href="https://www.facebook.com/RovingTransportSystem" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="linkedin" href="https://www.linkedin.com/company/raj-industries-textech/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a class="facebook" href="https://www.facebook.com/RovingTransportSystem" target="_blank"><i
+                  class="fa fa-facebook"></i></a></li>
+            <li><a class="linkedin" href="https://www.linkedin.com/company/raj-industries-textech/" target="_blank"><i
+                  class="fa fa-linkedin"></i></a></li>
             <!-- <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li> -->
           </ul>
         </div>
@@ -365,6 +406,7 @@
   <script type="text/javascript" src="js/smoothscroll.js"></script>
   <script type="text/javascript" src="js/jquery.countTo.js"></script>
   <script type="text/javascript" src="js/lightbox.min.js"></script>
+  <script type="text/javascript" src="js/slideshow.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 
   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
