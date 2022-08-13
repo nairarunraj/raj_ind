@@ -216,6 +216,10 @@
 	.footer-bottom p.pull-right {
 		float: none !important;
 	}
+	
+	#gallery {
+		display: none;
+	}
 }
 
 /* XS Portrait */
@@ -227,6 +231,10 @@
 	.blog-posts .col-sm-4 {
 		width:100%;
 		float: none;
+	}
+
+	#gallery {
+		display: none;
 	}
 }
 
