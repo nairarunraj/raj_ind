@@ -1,0 +1,292 @@
+ 
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+position:relative; z-index:900	;
+}
+.sf-menu ul {
+	position:		absolute;
+	left:0;
+	top:		27px;
+	width:			13em; /* left offset of submenus need to match (see below) */
+	z-index:100	;
+}
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu ul li a{ font-weight:normal}
+.sf-menu li:hover,.sf-menu li.active {
+	visibility:	inherit; /* fixes IE7 'sticky bug' */
+	background:url(../images/nav-active.jpg) 0 0 repeat-x;
+	
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;	
+}
+.sf-menu li span.arrow {margin-top:10px; color:#fff}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	/*left:			0;
+	top:			39px; *//* match top ul list item height */
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			13.8em; /* match ul width */
+	top:			0px;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			15em; /* match ul width */
+	bottom: 10em;
+	top:			0;
+}
+
+/*** DEMO SKIN ***/
+.sf-menu {
+	float:			left;
+	margin-bottom:	0;
+}
+.sf-menu a {
+	padding:1.9em 0.9em 1.8em;
+	text-decoration:none;
+	text-transform:capitalize; 
+}
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:			#000;
+}
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	color:#000;	
+	outline:		0;
+}
+
+.sf-menu li li:hover, .sf-menu li li.sfHover,
+.sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active {
+	color:#fff;	 background:#fff;
+	outline:		0;
+}
+
+.sf-menu li ul { 	}
+	
+	
+.sf-menu li.current a
+{
+color:#000;
+}
+
+/*** arrows **/
+.sf-menu a.sf-with-ul {
+	padding-right: 	2em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.75em;
+	top:			1.3em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	background:		url('../images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			1.0em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+.sf-menu ul .sf-sub-indicator { background-position:  -10px 0; }
+.sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+.sf-menu ul a:focus > .sf-sub-indicator,
+.sf-menu ul a:hover > .sf-sub-indicator,
+.sf-menu ul a:active > .sf-sub-indicator,
+.sf-menu ul li:hover > a > .sf-sub-indicator,
+.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+.sf-shadow ul {
+	background:	url('../images/shadow.png') no-repeat center bottom;
+	padding:0px 10px 10px;
+}
+.sf-shadow ul.sf-shadow-off {
+	background: transparent;
+}
+
+/* ################################################
+			MAIN MENU
+################################################### */
+
+.sf-menu a, .sf-menu a:visited  {color:#fff}
+.sf-menu li 			{ }
+.sf-menu li li:first-child	{border-top: 0px dashed #fff;}
+.sf-menu li li 			{border-top: 1px dashed #fff;}
+.sf-menu li li li 		{ background:#727272; }
+.sf-menu li li a {font-size:13px!important; padding:0.7em 0!important}
+.sf-menu li:hover, 
+.sf-menu li.sfHover,
+.sf-menu a:focus, 
+.sf-menu a:hover, 
+#navi ul.sf-menu li ul li a:hover {color:#000; outline: 0;-webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; background:none}
+
+.sf-menu a:focus, 
+.sf-menu a:hover, 
+.sf-menu a:active { color:#000}
+.sf-menu li li:hover, 
+.sf-menu li li.sfHover,
+.sf-menu li li a:focus, 
+.sf-menu li li a:hover, 
+.sf-menu li li a:active { color:#fff; background:#1a292e; outline: 0; }
+
+.sf-menu li ul 			{ }
+.sf-menu li.current a	{ color:#888; }
+
+
+/* container for slides */
+.slide-show{width:55%; position:relative; height:295px; float:right; margin-right:20px}
+.images {
+	background:none;
+	border:0px solid #ccc;
+	position:relative;
+	height:295px;	
+	float:left;	
+	margin:0;
+	cursor:pointer;
+	overflow:hidden;
+	
+	/* CSS3 tweaks for modern browsers 
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow:0 0 25px #666;
+	-webkit-box-shadow:0 0 25px #666;*/	
+}
+.images img {width:100%}
+.images > div {overflow:hidden;border-radius: 6px;-moz-border-radius: 6px;}
+/* single slide */
+/*.images div {
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;		
+	margin:0;
+	padding:0;
+	height:296px;
+	font-size:12px;
+}*/
+
+/* header */
+ .Enqtext .style6 {
+ 	color:#FF0000;
+ }
+ .Enqtext input[required] {
+ 	background-color:#F2F2F2;
+ }
+.images h3 { 
+	font-size:22px;
+	font-weight:bold;
+	margin:20px 0 10px 0;
+	color:#fff;
+	  text-align:left;
+}
+
+/* tabs (those little circles below slides) */
+.slidetabs {
+	clear:both; margin:0 auto;	  
+	background:url(../images/slide-tabs-bg.png) no-repeat;	 
+	width:131px; height:28px; 
+	padding:7px 12px 4px;
+}
+
+/* single tab */
+.slidetabs a {
+	width:22px;
+	height:22px;
+	float:left;
+	margin:2px;
+	background:url(../images/active-tab.png) 0 0 no-repeat;
+	display:block;
+	font-size:1px;		
+}
+
+/* mouseover state */
+.slidetabs a:hover {
+	background-position:0 -22px;      
+}
+
+/* active state (current page state) */
+.slidetabs a.current {
+	background-position:0 -22px;     
+} 	
+
+
+/* prev and next buttons */
+.forward{	
+	margin-top:120px;
+	background:url(../images/arrow-right.png) no-repeat transparent;
+	display:block;
+	width:31px;
+	height:69px;
+	cursor:pointer;
+	font-size:1px;
+	text-indent:-9999em;
+	position:absolute;
+	z-index:1000;
+	right:-27px;	
+}
+.backward {	 
+	left:-30px;
+	margin-top:120px;	
+	background:url(../images/arrow-left.png) no-repeat transparent;
+	display:block;
+	width:31px;
+	height:69px;
+	cursor:pointer;
+	font-size:1px;
+	text-indent:-9999em;
+	position:absolute;
+	z-index:1000;	
+}
+.blue-bg{width:100%; background:url(../images/blue-bg.png) repeat-x; height:39px; position:absolute; bottom:20px; left:0}
+/* next 
+.forward 				{ background-position: 0 -30px; clear:right; }
+.forward:hover 		{ background-position:-30px -30px; }
+.forward:active 	 	{ background-position:-60px -30px; } 
+*/
+
+/* prev 
+.backward:hover  		{ background-position:-30px 0; }
+.backward:active  	{ background-position:-60px 0; }
+*/
+/* disabled navigational button. is not needed when tabs are configured with rotate: true */
+.disabled {
+	visibility:hidden !important;		
+}

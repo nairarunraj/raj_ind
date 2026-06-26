@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- Created on 20-Feb-2006 12:06:56 -->
+
+<title>Materials Weight Calculator</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+</head>
+
+<body bgcolor="#ccccff">
+ 
+<div align="center">
+  <!-- Rollover Image Script - Place within <head> tag -->
+  <script language="JavaScript" type="text/javascript">
+<!-- Hide from older browsers
+function SwitchImg()
+{ //start
+  var rem, keep=0, store, obj, switcher=new Array, history=document.Data;
+    for (rem=0; rem < (SwitchImg.arguments.length-2); rem+=3) {
+    	store = SwitchImg.arguments[(navigator.appName == 'Netscape')?rem:rem+1];
+    if ((store.indexOf('document.layers[')==0 && document.layers==null) ||
+        (store.indexOf('document.all[')==0 && document.all==null))
+         store = 'document'+store.substring(store.lastIndexOf('.'),store.length);
+         obj = eval(store);
+    if (obj != null) {
+   	   switcher[keep++] = obj;
+      switcher[keep++] = (history==null || history[keep-1]!=obj)?obj.src:history[keep];
+      obj.src = SwitchImg.arguments[rem+2];
+  } }
+  document.Data = switcher;
+} //end
+
+function RestoreImg()
+{ //start
+  if (document.Data != null)
+    for (var rem=0; rem<(document.Data.length-1); rem+=2)
+      document.Data[rem].src=document.Data[rem+1];
+} //end
+
+// end hiding contents -->
+</script>
+  
+  <form method="post" name="calculator" onSubmit="CalculateWeight();return false;">
+   <table bordercolordark="#000000" class="marerial" cellpadding="10" cellspacing="0" width="600" border="0" bordercolor="#330033"  bgcolor="#fff" style="border:1px solid #999">
+      <tbody>
+        <tr>
+          <td colspan="2" align="center" style="background:#fff; color:#000"><a href="http://rajindustries.org/index.html"><img src="images/logo.png" alt="" border="0"></a><br><br><b>Materials Weight Calculator<br>
+            Metals / Plastics / Miscellaneous </b></td>
+        </tr>
+        <tr>
+          <td bgcolor="#ccccff"><img src="calcpics/material.jpg" alt="MATERIAL" height="15" width="100">&nbsp;
+            <select name="material" onChange="Density();">
+              <option value="2.7177">Aluminum</option>
+              <option value="7.8">Aluminum-Bronze</option>
+              <option value="1.84">Beryllium</option>
+              <option value="8.5095">Brass CZ121</option>
+              <option value="7.1514">Cast Iron</option>
+              <option value="8.9805">Copper</option>
+              <option value="19.3583">Gold</option>
+              <option value="11.3669">Lead</option>
+              <option value="1.74">Magnesium</option>
+              <option value="13.56">Mercury</option>
+              <option value="8.25">Nickel-Cobalt Alloys</option>
+              <option value="21.5">Platinum</option>
+              <option selected="selected" value="7.8501">Steel</option>
+              <option value="8.0856">Stainless 304</option>
+              <option value="10.5112">Silver</option>
+              <option value="4.50">Titanium</option>
+              <option value="19.30">Tungsten</option>
+              <option value="7.1514">Zinc</option>
+              <option value="6.53">Zirconium</option>
+              <option value="1.07">ABS</option>
+              <option value="1.16">Nylon 6</option>
+              <option value="1.22">Polycarbonate</option>
+              <option value="0.95">Polyethylene</option>
+              <option value="0.90">Polypropylene</option>
+              <option value="1.05">Polyurethane</option>
+              <option value="2.19">PTFE</option>
+              <option value="3.96">Alumina (Al2O3)</option>
+              <option value="2.6">Glass</option>
+              <option value="2.7">Granite / Marble</option>
+              <option value="1.0">Water (H20)</option>
+            </select>
+            <br>
+            <img src="calcpics/spacer.jpg" height="15" width="100">&nbsp; <br>
+            <img src="calcpics/density.jpg" height="15" width="100">&nbsp;
+            <input maxlength="10" name="density" onChange="document.calculator.material.selectedIndex='0';" onKeyPress="document.calculator.material.selectedIndex='0';" size="9" value="7.8501">
+            <select name="units0" onChange="UnitChange();">
+              <option selected="selected">g/cc</option>
+              <option>lb/in³</option>
+              <option>lb/ft³</option>
+              <option>kg/m³</option>
+            </select>
+            <br>
+            <br>
+            <img src="calcpics/cross.jpg" height="15" width="100">&nbsp;
+            <select name="shape" onChange="Measurements();ResetShape();">
+              <option selected="selected">Sheet / Plate / Flats</option>
+              <option>Square Bar</option>
+              <option>Hexagon Points</option>
+              <option>Hexagon A/F</option>
+              <option>Octagon Points</option>
+              <option>Octagon A/F</option>
+              <option>Round Bar</option>
+              <option>Round Tube</option>
+            </select>
+            <br>
+            <br>
+            <img src="calcpics/quantity.jpg" height="15" width="100">&nbsp;
+            <input tabindex="1" name="qty" size="10" value="1">
+            <br>
+            <br>
+            <img name="img1" src="calcpics/gauge.jpg" height="15" width="100">&nbsp;
+            <input value="1" tabindex="2" maxlength="10" name="value1" size="10">
+            &nbsp;
+            <select name="units1">
+              <option selected="selected">mm</option>
+              <option>cm</option>
+              <option>Metre</option>
+              <option>inch</option>
+              <option>foot</option>
+              <option>yard</option>
+            </select>
+            <br>
+            <br>
+            <img name="img2" src="calcpics/width.jpg" height="15" width="100">&nbsp;
+            <input value="1" tabindex="3" maxlength="10" name="value2" size="10">
+            &nbsp;
+            <select name="units2">
+              <option selected="selected">mm</option>
+              <option>cm</option>
+              <option>Metre</option>
+              <option>inch</option>
+              <option>foot</option>
+              <option>yard</option>
+            </select>
+            <br>
+            <br>
+            <img name="img3" src="calcpics/length.jpg" height="15" width="100">&nbsp;
+            <input value="1" tabindex="4" maxlength="10" name="value3" size="10">
+            &nbsp;
+            <select name="units3">
+              <option selected="selected">mm</option>
+              <option>cm</option>
+              <option>Metre</option>
+              <option>inch</option>
+              <option>foot</option>
+              <option>yard</option>
+              <option></option>
+            </select>
+            <br>
+            <br>
+            <img src="calcpics/spacer.jpg" height="15" width="105">
+            <input name="Submit" value="Calculate" type="submit">
+            &nbsp;&nbsp;
+            <input name="reset" onClick="Default();return false;" value="Reset All" type="reset">
+          </td>
+          <td valign="top" bgcolor="#ccccff">&nbsp;&nbsp;&nbsp;<img name="imgshape" src="calcpics/sheet.jpg" alt="SHEET" height="200" width="200"><br>
+            <br>
+            <img src="calcpics/spacer.jpg" height="15" width="5">&nbsp; <img src="calcpics/total.jpg" height="15" width="100">&nbsp; <br>
+            <img src="calcpics/spacer.jpg" height="15" width="5">&nbsp;
+            <input value="0.0079" name="weight" onBlur="Measurements();" onFocus="document.calculator.value1.focus();" size="16" align="right">
+            <img name="imgunits" src="calcpics/grams.jpg" height="15" width="65"> <br>
+            <br>
+            <img src="calcpics/spacer.jpg" height="15" width="5">&nbsp;
+            <input value="0.00001731" name="weight2" onBlur="Measurements();" onFocus="document.calculator.value1.focus();" size="16">
+            <img src="calcpics/pounds.jpg" height="15" width="65"> </td>
+        </tr>
+        <tr>
+          <td style="background-color:#f8f6f6" colspan="2" align="left" bgcolor="#fffff0"><a name="help"> </a><b><font face="Verdana, Arial, Helvetica, sans-serif" size="-1">
+        
+            <center>
+              HELP for weight calculator
+            </center>
+            </font></b><br>
+            <font color="#ff0066">
+            <center>
+              You can freely use any combination of Imperial and Metric units.
+            </center>
+            </font><br =""="">
+            <font face="arial" size="-1"> Choose a material from the Material Selection Box.<br>
+            Select the profile of the material- Sheet,Tube,Hex etc<br>
+            Fill in the quantity or just leave the value at 1.<br>
+            Fill in the dimensions of your material referring to the drawing at right-side of screen.<br>
+            The value will be converted when you hit ENTER key or CALCULATE button.<br>
+            The RESET button will change all the settings back to the start values.<br>
+            Option to Select your preferred unit of Density from the Drop Down box. <br>
+            </font>
+            <script language="JavaScript">
+
+	function CalculateWeight(){
+		var Values=new Array(5);
+		var Units=new Array(4);
+		var img1;
+		var img2;
+		var img3;
+		var imgshape;
+		var MatlSelect;
+		var Valid;
+		var Shape;
+		var Weight=new Number(0);
+		var WeightTemp=new Number(0);
+		var Weight2=new Number(0);
+		var WeightTemp2=new Number(0);
+		
+		MatlSelect=document.calculator.material.selectedIndex;
+		if(MatlSelect=="0"){
+			Values[0]=document.calculator.density.value;
+			Units[0]=document.calculator.units0.selectedIndex;
+		}
+		
+		if(MatlSelect>"0"){
+			Values[0]=document.calculator.material.options[document.calculator.material.selectedIndex].value;
+			Units[0]=0;
+			
+		}
+		
+		Values[1]=document.calculator.value1.value;
+		Values[2]=document.calculator.value2.value;
+		Values[3]=document.calculator.value3.value;
+		Values[4]=document.calculator.qty.value;
+		Shape=document.calculator.shape.selectedIndex;
+		
+		Valid=CheckVal(Values[0],Values[1],Values[2],Values[3],Values[4]);
+		if(!Valid)
+			return;
+		
+		Units[1]=document.calculator.units1.options[document.calculator.units1.selectedIndex].text;
+		Units[2]=document.calculator.units2.options[document.calculator.units2.selectedIndex].text;
+		Units[3]=document.calculator.units3.options[document.calculator.units3.selectedIndex].text;
+		
+		Values[0]=DensityConverter(Values[0],Units[0]);
+		Values[1]=UnitConverter(Values[1],Units[1]);
+		Values[2]=UnitConverter(Values[2],Units[2]);
+		Values[3]=UnitConverter(Values[3],Units[3]);
+		Values[4]=UnitConverter(Values[4],"cm");
+		
+		if(Shape=="0")/*Sheet or Rectangle*/
+			Weight=(Values[0] * Values[1] * Values[2] * Values[3] * Values[4]);
+		if(Shape=="1")/*Square*/
+			Weight=(Values[0] * Values[1] * Values[1] * Values[2] * Values[4]);
+		if(Shape=="2")/*Hexagon Points*/
+			Weight=(Values[0] * 0.64952 * Values[1] * Values[1] * Values[2] * Values[4]);
+		if(Shape=="3")/*Hexagon A/F*/
+			Weight=(Values[0] * 0.86602 * Values[1] * Values[1] * Values[2] * Values[4]);
+		if(Shape=="4")/*Octagon Points*/
+			Weight=(Values[0] * 0.707327 * Values[1] * Values[1] * Values[2] * Values[4]);
+		if(Shape=="5")/*Octagon A/F*/
+			Weight=(Values[0] * 0.82842 * Values[1] * Values[1] * Values[2] * Values[4]);
+		if(Shape=="6")/*Round*/
+			Weight=(Values[0] * 0.785398 * Values[1] * Values[1] * Values[2] * Values[4]);
+		if(Shape=="7")/*Round Tube*/
+			Weight=(Values[0] * 0.785398 * ((Values[1] * Values[1]) - (Values[2] * Values[2])) * Values[3] * Values[4]);
+		
+		document.calculator.imgunits.src="calcpics/kilo.jpg"
+		/*Converting Weight2 to pounds*/
+		Weight2=Weight*0.002205;
+
+		if((Weight<"1000")&&(Weight>="0.0001")){
+			/*Rounding grams*/
+			WeightTemp=Weight*10000;
+			WeightTemp=Math.round(WeightTemp);
+			WeightTemp=WeightTemp/10000;
+			document.calculator.imgunits.src="calcpics/grams.jpg";
+		}
+		
+		if(Weight<"0.0001"){
+			/*Rounding really really small grams*/
+			WeightTemp=Weight*100000000;
+			WeightTemp=Math.round(WeightTemp);
+			WeightTemp=WeightTemp/100000000;
+			document.calculator.imgunits.src="calcpics/grams.jpg";
+		}
+
+		if(Weight>="1000"){
+			/*Converting to kilograms*/
+			WeightTemp=Weight/1000;
+			/*Rounding kilograms*/
+			WeightTemp=WeightTemp*10000;
+			WeightTemp=Math.round(WeightTemp);
+			WeightTemp=WeightTemp/10000;
+			document.calculator.imgunits.src="calcpics/kilo.jpg";
+		}
+
+		if(Weight2>="0.0001"){
+			/*Rounding pounds*/
+			WeightTemp2=Weight2*10000;
+			WeightTemp2=Math.round(WeightTemp2);
+			WeightTemp2=WeightTemp2/10000;
+		}
+		
+		if(Weight2<"0.0001"){
+			/*Rounding really really small pounds*/
+			WeightTemp2=Weight2*100000000;
+			WeightTemp2=Math.round(WeightTemp2);
+			WeightTemp2=WeightTemp2/100000000;
+		}
+
+		document.calculator.weight.value=WeightTemp;
+		document.calculator.weight2.value=WeightTemp2;
+		document.calculator.Submit.value="Calculate";
+	}
+
+	function CheckVal(val0,val1,val2,val3,val4){
+		var selShape;
+		
+		selShape=document.calculator.shape.selectedIndex;
+		
+		if((val0=="")||(val4=="")){
+			alert("You must enter values for both Density and Quantity to calculate total weight.");
+			return false;
+		}
+		if((val1=="")||(val2=="")){
+			alert("You must enter a value for each dimension.");
+			return false;
+		}
+		if((selShape=="0"||selShape=="7")&&(val3=="")){
+			alert("You must enter a value for each dimension.");
+			return false;
+		}
+		return true;
+	}
+
+	function Default(){
+		document.calculator.material.selectedIndex="12";
+		document.calculator.density.value="7.8501";
+		document.calculator.units0.selectedIndex="0";
+		document.calculator.shape.selectedIndex="0";
+		document.calculator.qty.value="1";
+		document.calculator.img1.src="calcpics/gauge.jpg";
+		document.calculator.value1.value="";
+		document.calculator.units1.selectedIndex="0";
+		document.calculator.img2.src="calcpics/width.jpg";
+		document.calculator.value2.value="";
+		document.calculator.units2.selectedIndex="0";
+		document.calculator.img3.src="calcpics/length.jpg";
+		document.calculator.value3.value="";
+		document.calculator.units3.selectedIndex="0";
+		document.calculator.imgshape.src="calcpics/sheet.jpg";
+		document.calculator.weight.value="";
+		document.calculator.imgunits.src="calcpics/kilo.jpg";
+		document.calculator.weight2.value="";
+		document.calculator.Submit.value="Calculate";
+	}
+
+	function Density(){
+		var MatlSelect;
+		
+		MatlSelect=document.calculator.material.options[document.calculator.material.selectedIndex].value;
+		
+		document.calculator.density.value=MatlSelect;
+		document.calculator.units0.selectedIndex="0";
+	}
+
+	function DensityConverter(value,unit){
+		if(unit=="0")
+			value=value*1;
+		if(unit=="1")
+			value=value*0.03613;
+		if(unit=="2")
+			value=value*62.42797;
+		if(unit=="3")
+			value=value*1000;
+		return value;
+	}
+
+	function Measurements(){
+		var selShape;
+		selShape=document.calculator.shape.selectedIndex;
+		
+		if(selShape=="0"){
+			document.calculator.img1.src="calcpics/gauge.jpg";
+			document.calculator.img2.src="calcpics/width.jpg";
+			document.calculator.img3.src="calcpics/length.jpg";
+			document.calculator.units3.selectedIndex="0";
+			document.calculator.imgshape.src="calcpics/sheet.jpg";
+		}
+		
+		if(selShape=="1"){
+			document.calculator.img1.src="calcpics/width.jpg";
+			document.calculator.img2.src="calcpics/length.jpg";
+			document.calculator.img3.src="calcpics/notreq.jpg";
+			document.calculator.units3.selectedIndex="6";
+			document.calculator.imgshape.src="calcpics/square.jpg";
+		}
+		if(selShape=="2"){
+			document.calculator.img1.src="calcpics/diameter.jpg";
+			document.calculator.img2.src="calcpics/length.jpg";
+			document.calculator.img3.src="calcpics/notreq.jpg";
+			document.calculator.units3.selectedIndex="6";
+			document.calculator.imgshape.src="calcpics/hex-points.jpg";
+		}
+		if(selShape=="3"){
+			document.calculator.img1.src="calcpics/diameter.jpg";
+			document.calculator.img2.src="calcpics/length.jpg";
+			document.calculator.img3.src="calcpics/notreq.jpg";
+			document.calculator.units3.selectedIndex="6";
+			document.calculator.imgshape.src="calcpics/hex-af.jpg";
+		}
+		if(selShape=="4"){
+			document.calculator.img1.src="calcpics/diameter.jpg";
+			document.calculator.img2.src="calcpics/length.jpg";
+			document.calculator.img3.src="calcpics/notreq.jpg";
+			document.calculator.units3.selectedIndex="6";
+			document.calculator.imgshape.src="calcpics/oct-points.jpg";
+		}
+		if(selShape=="5"){
+			document.calculator.img1.src="calcpics/diameter.jpg";
+			document.calculator.img2.src="calcpics/length.jpg";
+			document.calculator.img3.src="calcpics/notreq.jpg";
+			document.calculator.units3.selectedIndex="6";
+			document.calculator.imgshape.src="calcpics/oct-af.jpg";
+		}
+		if(selShape=="6"){
+			document.calculator.img1.src="calcpics/diameter.jpg";
+			document.calculator.img2.src="calcpics/length.jpg";
+			document.calculator.img3.src="calcpics/notreq.jpg";
+			document.calculator.units3.selectedIndex="6";
+			document.calculator.imgshape.src="calcpics/round.jpg";
+		}
+		if(selShape=="7"){
+			document.calculator.img1.src="calcpics/outer.jpg";
+			document.calculator.img2.src="calcpics/inner.jpg";
+			document.calculator.img3.src="calcpics/length.jpg";
+			document.calculator.units3.selectedIndex="0";
+			document.calculator.imgshape.src="calcpics/tube.jpg";
+		}
+	}
+
+	function ResetShape(){
+		document.calculator.qty.value="1";
+		document.calculator.value1.value="";
+		document.calculator.value2.value="";
+		document.calculator.value3.value="";
+		document.calculator.weight.value="";
+		document.calculator.weight2.value="";
+		document.calculator.units1.selectedIndex="0";
+		document.calculator.units2.selectedIndex="0";
+		document.calculator.imgunits.src="calcpics/kilo.jpg";
+		document.calculator.Submit.value="Calculate";
+	}
+
+	function UnitChange(){
+		var MatlSelect;
+		var Units;
+		var Density;
+		var Converted;
+		
+		MatlSelect=document.calculator.material.selectedIndex;
+		
+		if(MatlSelect!="0"){
+			Units=document.calculator.units0.selectedIndex;
+			Density=document.calculator.material.options[document.calculator.material.selectedIndex].value;
+			Converted=DensityConverter(Density,Units);
+			document.calculator.density.value=Converted;
+		}
+	}
+
+	function UnitConverter(value,unit){
+		if(unit=="mm")
+			value=value/10;
+		if(unit=="Metre")
+			value=value*100;
+		if(unit=="inch")
+			value=value*2.54;
+		if(unit=="foot")
+			value=(value*2.54)*12;
+		if(unit=="yard")
+			value=(value*2.54)*36;
+		return value;
+	}
+        </script>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+</body>
+</html>

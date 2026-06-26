@@ -1,0 +1,89 @@
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+position:relative; z-index:900	;
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			38px;
+	width:			15em; /* left offset of submenus need to match (see below) */
+	z-index:100	;
+}
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu ul li a{ font-weight:normal}
+.sf-menu li:hover {
+	visibility:	inherit; /* fixes IE7 'sticky bug' */
+	
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;
+ 
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:15px; /* match top ul list item height */
+}
+ul.sf-menu li ul li {background:#e6e7ea!important}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			15em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			15em; /* match ul width */
+	bottom: 10em;
+	top:			0;
+}
+
+/* ################################################
+			MAIN MENU
+################################################### */
+
+.sf-menu a, .sf-menu a:visited  {color:#fff}
+.sf-menu li ul 	{border-top: 1px solid #c1c0c0; -moz-border-radius:1px 1px 1px 1px}
+.sf-menu li li 			{ background:#ebebeb; border-bottom: 1px solid #c1c0c0; border-left: 1px solid #c1c0c0; border-right: 1px solid #c1c0c0;}
+.sf-menu li li li 		{ background:#ebebeb; }
+.sf-menu li li a {font-size:12px!important; padding:5px 10px!important; width:87%; line-height:15px; border-right:none; color:#000000!important}
+.sf-menu li:hover, 
+.sf-menu li.sfHover,
+.sf-menu a:focus, 
+.sf-menu a:hover, 
+.sf-menu a:active 		{ color:#fff; outline: 0;}
+
+.sf-menu li li:hover, 
+.sf-menu li li.sfHover,
+.sf-menu li li a:focus, 
+.sf-menu li li a:hover, 
+.sf-menu li li a:active { color:#fff!important; background:#3580a9; outline: 0; }
+
+.sf-menu li ul 			{ }
+.sf-menu li.current a	{ color:#888; }
+
+
+div#nav ul li a {
+background : url(../images/nav.png) no-repeat;
+}
+
